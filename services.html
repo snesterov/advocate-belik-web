@@ -107,11 +107,29 @@
       display: flex;
       flex-direction: column;
     }
+    .service-card.featured {
+      border-color: var(--gold-border);
+      background: linear-gradient(145deg, rgba(212, 175, 55, 0.08) 0%, rgba(15, 23, 42, 0.85) 100%);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.12);
+    }
     .service-card:hover {
       border-color: var(--gold-border);
       background: var(--bg-card-hover);
       transform: translateY(-4px);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+    .service-tag {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-bottom: 6px;
     }
     .service-head {
       display: flex;
@@ -240,7 +258,51 @@
     </div>
 
     <div class="services-grid">
-      <!-- 1. КАД Арбитр -->
+      <!-- 1. РЕЕСТР АДВОКАТОВ (ЗАПРОС ГАЛИНЫ БЕЛИК) -->
+      <div class="service-card featured">
+        <div class="service-head">
+          <div class="service-icon">🏛</div>
+          <div>
+            <div class="service-tag">Официальный реестр</div>
+            <div class="service-authority">Адвокатская палата Воронежской области</div>
+            <h3 class="service-title">«Адвокат или нет?» Проверка вашего юриста</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Официальный региональный реестр адвокатов палаты Воронежской области и Минюста РФ. Проверка наличия действующего статуса адвоката, права ведения судебных дел и отсутствия дисциплинарных взысканий. Статус адвоката Белик Г.П. подтвержден реестровым номером 36/1612.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Обязательно проверяйте статус юриста перед заключением соглашения. Только действующий адвокат несет персональную ответственность перед палатой и обеспечивает соблюдение адвокатской тайны (ст. 8 ФЗ № 63-ФЗ).
+        </div>
+        <a href="https://advpalata.vrn.ru/registers/reestr_lawyers/" target="_blank" rel="noopener" class="service-btn" style="border-color:var(--gold-border); background:rgba(212,175,55,0.12); color:var(--gold-light);">
+          <span>Проверить в реестре адвокатов</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 2. ПРОВЕРКА КОНТРАГЕНТА (ЗАПРОС ГАЛИНЫ БЕЛИК) -->
+      <div class="service-card featured">
+        <div class="service-head">
+          <div class="service-icon">📑</div>
+          <div>
+            <div class="service-tag">База ФНС России</div>
+            <div class="service-authority">Федеральная налоговая служба РФ</div>
+            <h3 class="service-title">Проверка контрагента (ЕГРЮЛ / ЕГРИП)</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Официальный сервис налоговой службы для мгновенной проверки организаций и индивидуальных предпринимателей по ИНН/ОГРН. Получение юридически значимой электронной выписки из ЕГРЮЛ/ЕГРИП с усиленной ЭЦП налогового органа.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Проверьте дату регистрации, массовость юридического адреса, реальность генерального директора и отсутствие отметок о недостоверности сведений перед перечислением денег.
+        </div>
+        <a href="https://egrul.nalog.ru/" target="_blank" rel="noopener" class="service-btn" style="border-color:var(--gold-border); background:rgba(212,175,55,0.12); color:var(--gold-light);">
+          <span>Открыть проверку в ФНС</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 3. КАД Арбитр -->
       <div class="service-card">
         <div class="service-head">
           <div class="service-icon">⚖</div>
@@ -261,28 +323,7 @@
         </a>
       </div>
 
-      <!-- 2. ЕГРЮЛ / ФНС -->
-      <div class="service-card">
-        <div class="service-head">
-          <div class="service-icon">📑</div>
-          <div>
-            <div class="service-authority">ФНС России</div>
-            <h3 class="service-title">Проверка контрагента (ЕГРЮЛ / ЕГРИП)</h3>
-          </div>
-        </div>
-        <p class="service-desc">
-          Официальный сервис налоговой службы для моментального получения электронной выписки из ЕГРЮЛ/ЕГРИП с усиленной квалифицированной электронной подписью.
-        </p>
-        <div class="service-tips">
-          <strong>Совет адвоката:</strong> Проверьте дату регистрации, реальность адреса (не является ли массовым), статус директора и отсутствие отметок о недостоверности сведений.
-        </div>
-        <a href="https://egrul.nalog.ru/" target="_blank" rel="noopener" class="service-btn">
-          <span>Открыть проверку ФНС</span>
-          <span>→</span>
-        </a>
-      </div>
-
-      <!-- 3. ФССП -->
+      <!-- 4. ФССП -->
       <div class="service-card">
         <div class="service-head">
           <div class="service-icon">⚡</div>
@@ -303,7 +344,28 @@
         </a>
       </div>
 
-      <!-- 4. ЕФРСБ / Банкротство -->
+      <!-- 5. ГАС Правосудие -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">🏛</div>
+          <div>
+            <div class="service-authority">Суды общей юрисдикции РФ</div>
+            <h3 class="service-title">ГАС «Правосудие» (Поиск судебных дел)</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Единый государственный портал судов общей юрисдикции и мировых судей РФ. Поиск гражданских, административных и семейных споров по фамилии гражданина или названию компании.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Проверяйте наличие споров в районных судах по месту регистрации физлица — так выявляются семейные разделы, взыскания кредитов и трудовые иски.
+        </div>
+        <a href="https://sudrf.ru/" target="_blank" rel="noopener" class="service-btn">
+          <span>Открыть ГАС Правосудие</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 6. ЕФРСБ / Банкротство -->
       <div class="service-card">
         <div class="service-head">
           <div class="service-icon">🛡</div>
@@ -324,10 +386,10 @@
         </a>
       </div>
 
-      <!-- 5. Росреестр / Земля -->
+      <!-- 7. Росреестр / Земля -->
       <div class="service-card">
         <div class="service-head">
-          <div class="service-icon">🏛</div>
+          <div class="service-icon">🗺</div>
           <div>
             <div class="service-authority">Росреестр</div>
             <h3 class="service-title">Публичная кадастровая карта (НСПД)</h3>
@@ -345,7 +407,7 @@
         </a>
       </div>
 
-      <!-- 6. Калькулятор госпошлины -->
+      <!-- 8. Калькулятор госпошлины -->
       <div class="service-card">
         <div class="service-head">
           <div class="service-icon">🧮</div>
@@ -366,28 +428,7 @@
         </a>
       </div>
 
-      <!-- 7. ГАРАНТ -->
-      <div class="service-card">
-        <div class="service-head">
-          <div class="service-icon">📚</div>
-          <div>
-            <div class="service-authority">Информационно-правовой портал</div>
-            <h3 class="service-title">Правовая система ГАРАНТ</h3>
-          </div>
-        </div>
-        <p class="service-desc">
-          Актуальная справочно-правовая база: федеральные законы, постановления Пленумов Верховного Суда РФ, кодексы в действующих редакциях с комментариями.
-        </p>
-        <div class="service-tips">
-          <strong>Совет адвоката:</strong> Всегда проверяйте дату вступления норм в законную силу — судебная практика меняется с каждым новым обзором ВС РФ.
-        </div>
-        <a href="https://www.garant.ru/" target="_blank" rel="noopener" class="service-btn">
-          <span>Открыть базу ГАРАНТ</span>
-          <span>→</span>
-        </a>
-      </div>
-
-      <!-- 8. ГИБДД -->
+      <!-- 9. ГИБДД -->
       <div class="service-card">
         <div class="service-head">
           <div class="service-icon">🚗</div>
@@ -404,6 +445,27 @@
         </div>
         <a href="https://xn--90adear.xn--p1ai/check/fines" target="_blank" rel="noopener" class="service-btn">
           <span>Проверить в ГИБДД</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 10. ГАРАНТ -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">📚</div>
+          <div>
+            <div class="service-authority">Информационно-правовой портал</div>
+            <h3 class="service-title">Правовая система ГАРАНТ</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Актуальная справочно-правовая база: федеральные законы, постановления Пленумов Верховного Суда РФ, кодексы в действующих редакциях с комментариями.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Всегда проверяйте дату вступления норм в законную силу — судебная практика меняется с каждым новым обзором ВС РФ.
+        </div>
+        <a href="https://www.garant.ru/" target="_blank" rel="noopener" class="service-btn">
+          <span>Открыть базу ГАРАНТ</span>
           <span>→</span>
         </a>
       </div>
