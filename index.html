@@ -1219,6 +1219,31 @@
       }
       updateSummary();
 
+      // Авто-отправка в агентский шлюз Серого Волка при клике на квиз
+      var sendBtn = document.getElementById('quiz-send-btn');
+      if (sendBtn) {
+        sendBtn.addEventListener('click', function() {
+          try {
+            fetch('https://wolfhunt-tg.onrender.com/api/lead/submit', {
+              method: 'POST',
+              mode: 'cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                site: 'Адвокат Белик Г.П. (advocate-belik-web)',
+                name: 'Посетитель сайта',
+                telegram: '@Belik_Galina_Pavlovna',
+                quiz_answers: [
+                  { question: 'Область спора', answer: selectedArea },
+                  { question: 'Стадия ситуации', answer: selectedStage },
+                  { question: 'Сумма актива', answer: selectedSum }
+                ],
+                comment: 'Клиент нажал кнопку отправки квиза в Telegram'
+              })
+            }).catch(function() {});
+          } catch(e) {}
+        });
+      }
+
       // 2. Slider Controls
       var track = document.getElementById('tg-posts-container');
       var prevBtn = document.getElementById('slider-prev');
