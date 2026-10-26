@@ -454,28 +454,213 @@
       pointer-events: auto;
     }
 
+    /* --- MOBILE DRAWER & TOGGLE --- */
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 0;
+      transition: all 0.2s;
+    }
+    .menu-toggle:hover { background: rgba(212, 175, 55, 0.15); border-color: var(--gold); }
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(7, 9, 14, 0.98);
+      backdrop-filter: blur(25px);
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+    }
+    .mobile-drawer.open { transform: translateX(0); }
+    .mobile-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 24px;
+    }
+    .drawer-close {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .mobile-drawer-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .drawer-link {
+      font-size: 18px;
+      font-weight: 600;
+      color: #cbd5e1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 0.2s;
+    }
+    .drawer-link:hover, .drawer-link:active {
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.1);
+      border-color: var(--gold-border);
+    }
+    .mobile-drawer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    /* --- RESPONSIVE MEDIA QUERIES --- */
     @media (max-width: 980px) {
       .nav-menu { display: none; }
+      .nav-phone { display: none; }
+      .menu-toggle { display: flex; }
+      .hero { padding: 130px 0 60px; }
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero-title { font-size: 36px; }
-      .hero-img-wrap { height: 420px; }
-      .bento-grid { grid-template-columns: 1fr; }
-      .trust-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-box { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .hero { padding: 120px 0 60px; }
-      .hero-title { font-size: 28px; }
       .hero-descr { font-size: 16px; }
-      .hero-stats { grid-template-columns: repeat(2, 1fr); }
-      .hero-img-wrap { height: 350px; }
-      .section { padding: 60px 0; }
-      .section-title { font-size: 28px; }
-      .quiz-wrap { padding: 28px 20px; }
-      .trust-grid { grid-template-columns: 1fr; }
-      .tg-channel-banner { padding: 24px 20px; }
-      .floating-hud { bottom: 18px; right: 18px; }
-      .hud-btn { width: 50px; height: 50px; }
+      .hero-actions { flex-direction: column; width: 100%; gap: 12px; }
+      .hero-actions .btn-primary, .hero-actions .btn-secondary { width: 100%; justify-content: center; }
+      .hero-img-wrap { height: 420px; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .bento-grid { grid-template-columns: 1fr; gap: 20px; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .contact-box { grid-template-columns: 1fr; padding: 32px 24px; gap: 32px; }
+      .tg-slider-item { flex: 0 0 85%; min-width: 280px; }
+      .slider-header-wrap { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 16px; }
+      .nav-inner { height: 68px; }
+      .nav-emblem { width: 38px; height: 38px; font-size: 18px; border-radius: 10px; }
+      .nav-title { font-size: 15px; }
+      .nav-subtitle { font-size: 10px; }
+      .nav-btn { padding: 8px 14px; font-size: 12px; }
+      .hero { padding: 95px 0 45px; }
+      .hero-badge { font-size: 11px; padding: 6px 12px; margin-bottom: 16px; }
+      .hero-title { font-size: 26px; line-height: 1.25; margin-bottom: 16px; }
+      .hero-descr { font-size: 14px; line-height: 1.55; margin-bottom: 24px; }
+      .hero-actions { gap: 10px; margin-bottom: 30px; }
+      .hero-actions .btn-primary, .hero-actions .btn-secondary { font-size: 14px; padding: 14px 20px; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; padding-top: 20px; }
+      .stat-val { font-size: 20px; }
+      .stat-label { font-size: 11px; }
+      .hero-img-wrap { height: 320px; }
+      .hero-card-badge { padding: 10px 12px; bottom: 10px; left: 10px; right: 10px; border-radius: 12px; }
+      .hero-card-badge-name { font-size: 13px; }
+      .hero-card-badge-status { font-size: 10px; }
+
+      .section { padding: 48px 0; }
+      .section-header { margin-bottom: 30px; }
+      .section-badge { font-size: 11px; padding: 4px 12px; margin-bottom: 10px; }
+      .section-title { font-size: 24px; line-height: 1.25; margin-bottom: 10px; }
+      .section-subtitle { font-size: 13px; }
+
+      .bento-card { padding: 22px 16px; border-radius: 16px; }
+      .bento-icon-wrap { width: 44px; height: 44px; font-size: 20px; margin-bottom: 14px; }
+      .bento-card-title { font-size: 18px; margin-bottom: 10px; }
+      .bento-card-descr { font-size: 13px; margin-bottom: 16px; }
+      .bento-list { gap: 8px; margin-bottom: 18px; }
+      .bento-list li { font-size: 13px; }
+      .bento-btn { font-size: 13px; }
+
+      .services-teaser { padding: 22px 16px; border-radius: 18px; margin-top: 24px; gap: 16px; }
+      .services-teaser-left h3 { font-size: 18px; }
+      .services-teaser-left p { font-size: 13px; }
+      .services-teaser-chips { gap: 6px; margin-top: 10px; }
+      .service-chip { font-size: 11px; padding: 5px 10px; }
+      .services-teaser .btn-primary { width: 100%; justify-content: center; font-size: 14px; padding: 13px 20px; }
+
+      .quiz-wrap { padding: 22px 14px; border-radius: 18px; }
+      .quiz-step-title { font-size: 15px; margin-bottom: 12px; }
+      .quiz-options { grid-template-columns: 1fr; gap: 8px; margin-bottom: 20px; }
+      .quiz-btn { padding: 12px 14px; font-size: 13px; border-radius: 10px; width: 100%; }
+      .quiz-submit-box { flex-direction: column; align-items: stretch; gap: 14px; padding-top: 16px; }
+      .quiz-summary-text { font-size: 13px; }
+      .quiz-submit-box .btn-primary { width: 100%; justify-content: center; font-size: 14px; padding: 14px 20px; }
+
+      .tg-slider-item { flex: 0 0 90%; min-width: 250px; }
+      .tg-card-img { height: 160px; }
+      .tg-card-body { padding: 16px 14px; }
+      .tg-card-title { font-size: 15px; }
+      .tg-card-preview { font-size: 13px; margin-bottom: 14px; }
+      .tg-card-footer { font-size: 12px; }
+
+      .tg-channel-banner { padding: 20px 16px; border-radius: 16px; flex-direction: column; align-items: stretch; text-align: left; gap: 14px; }
+      .tg-channel-banner h4 { font-size: 17px; }
+      .tg-channel-banner p { font-size: 13px; margin-bottom: 10px; }
+      .btn-tg { width: 100%; justify-content: center; padding: 12px 18px; font-size: 14px; }
+
+      .trust-grid { grid-template-columns: 1fr; gap: 10px; }
+      .trust-card { padding: 18px 16px; border-radius: 14px; text-align: left; display: flex; gap: 14px; align-items: flex-start; }
+      .trust-num { font-size: 26px; margin-bottom: 0; line-height: 1; flex-shrink: 0; }
+      .trust-title { font-size: 15px; margin-bottom: 4px; }
+      .trust-desc { font-size: 12px; }
+
+      .faq-question { padding: 15px 14px; font-size: 14px; }
+      .faq-icon { width: 26px; height: 26px; font-size: 15px; }
+      .faq-answer { padding: 0 14px; font-size: 13px; }
+      .faq-item.active .faq-answer { padding-bottom: 14px; }
+
+      .contact-box { padding: 20px 14px; border-radius: 18px; gap: 20px; }
+      .contact-item { gap: 10px; }
+      .contact-item-icon { width: 36px; height: 36px; font-size: 16px; border-radius: 10px; }
+      .contact-label { font-size: 11px; }
+      .contact-val { font-size: 13px; }
+      .contact-box > div:last-child { padding: 20px 14px !important; border-radius: 14px; }
+      .contact-box > div:last-child h3 { font-size: 17px; }
+      .contact-box > div:last-child p { font-size: 13px; margin-bottom: 18px; }
+      .contact-box > div:last-child .btn-primary { font-size: 14px; padding: 13px 20px; }
+
+      .floating-hud { bottom: 12px; right: 12px; gap: 8px; }
+      .hud-btn { width: 46px; height: 46px; }
+      .hud-tooltip { display: none !important; }
+
+      .footer { padding: 32px 0; }
+      .footer-inner { flex-direction: column; text-align: center; gap: 12px; font-size: 12px; }
+      .footer-links { justify-content: center; flex-wrap: wrap; gap: 12px; font-size: 13px; }
     }
   </style>
 </head>
@@ -509,10 +694,47 @@
             <span>В Telegram</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
           </a>
+          <button class="menu-toggle" id="menu-toggle" aria-label="Открыть мобильное меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </div>
   </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <a href="#" class="nav-brand">
+        <div class="nav-emblem">⚖</div>
+        <div>
+          <div class="nav-title font-serif">БЕЛИК Г.П.</div>
+          <div class="nav-subtitle">Адвокатский кабинет</div>
+        </div>
+      </a>
+      <button class="drawer-close" id="drawer-close" aria-label="Закрыть меню">✕</button>
+    </div>
+    <ul class="mobile-drawer-menu">
+      <li><a href="#practices" class="drawer-link">⚖ Специализация</a></li>
+      <li><a href="experience.html" class="drawer-link">🎓 Опыт адвоката</a></li>
+      <li><a href="services.html" class="drawer-link">📑 Полезные сервисы (10)</a></li>
+      <li><a href="#quiz" class="drawer-link">⚡ Экспресс-аудит спора</a></li>
+      <li><a href="#telegram" class="drawer-link">💬 Судебные кейсы в TG</a></li>
+      <li><a href="#faq" class="drawer-link">❓ Вопрос — Ответ (FAQ)</a></li>
+      <li><a href="#contacts" class="drawer-link">📍 Контакты в Воронеже</a></li>
+    </ul>
+    <div class="mobile-drawer-actions">
+      <a href="tel:+79202115444" class="btn-primary" style="width: 100%; justify-content: center;">
+        <span>Позвонить: +7 (920) 211-54-44</span>
+      </a>
+      <a href="https://t.me/Belik_Galina_Pavlovna" target="_blank" rel="noopener" class="btn-secondary" style="width: 100%; justify-content: center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+        <span>Написать в Telegram</span>
+      </a>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -1084,6 +1306,31 @@
         .catch(function(err) {
           console.warn('Telegram posts feed fallback:', err);
         });
+
+      // 6. Mobile Drawer Toggle
+      var menuToggle = document.getElementById('menu-toggle');
+      var drawerClose = document.getElementById('drawer-close');
+      var drawer = document.getElementById('mobile-drawer');
+      var drawerLinks = document.querySelectorAll('.drawer-link');
+
+      function openDrawer() {
+        if (drawer) {
+          drawer.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+      function closeDrawer() {
+        if (drawer) {
+          drawer.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      }
+
+      if (menuToggle) menuToggle.addEventListener('click', openDrawer);
+      if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(function(l) {
+        l.addEventListener('click', closeDrawer);
+      });
     });
   </script>
 </body>
