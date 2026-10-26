@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Полезные юридические сервисы — Проверка контрагентов, судов, долгов ФССП | Адвокат Белик Г.П.</title>
+  <meta name="description" content="Официальные государственные реестры для самостоятельной проверки контрагентов, судебных дел, долгов приставов, кадастровой стоимости и расчета госпошлины. Подборка от адвоката Белик Г.П." />
+  <meta property="og:title" content="Полезные юридические сервисы — Адвокат Белик Галина Павловна" />
+  <meta property="og:description" content="Проверка контрагента по ИНН, картотека арбитражных дел, банк данных ФССП, кадастровая карта и расчет госпошлин." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="https://static.tildacdn.com/tild3363-3566-4264-a165-306130303339/kling_20260527______.png" type="image/png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-gradient: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #aa820a 100%);
+      --gold-border: rgba(212, 175, 55, 0.35);
+      --gold-glow: rgba(212, 175, 55, 0.2);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-tg: #24A1DE;
+      --accent-green: #10b981;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 35%, rgba(36, 161, 222, 0.06) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+    .container { max-width: 1220px; margin: 0 auto; padding: 0 24px; }
+    .font-serif { font-family: 'Cinzel', Georgia, serif; letter-spacing: 0.5px; }
+    .gold-text { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* Nav */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(7, 9, 14, 0.88); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 78px; }
+    .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: #fff; }
+    .nav-emblem {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+      border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 20px;
+    }
+    .nav-title { font-size: 17px; font-weight: 700; }
+    .nav-subtitle { font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .nav-menu { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: #fff; }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; }
+    .nav-btn {
+      background: var(--gold-gradient); color: #07090e !important; font-weight: 700;
+      font-size: 13px; padding: 10px 20px; border-radius: 50px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+
+    /* Header section */
+    .page-header {
+      padding: 150px 0 60px;
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212, 175, 55, 0.12); border: 1px solid var(--gold-border);
+      color: var(--gold); padding: 6px 16px; border-radius: 50px;
+      font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .page-title { font-size: 42px; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 18px; }
+    .page-subtitle { font-size: 17px; color: var(--text-muted); line-height: 1.6; }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      margin-bottom: 80px;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 34px;
+      backdrop-filter: blur(14px);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      border-color: var(--gold-border);
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+    .service-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+      border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 24px; flex-shrink: 0;
+    }
+    .service-title { font-size: 20px; font-weight: 700; color: #fff; line-height: 1.3; }
+    .service-authority { font-size: 12px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+    .service-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+    .service-tips {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--gold);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 22px;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    .service-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+    .service-btn:hover {
+      background: var(--gold-gradient);
+      color: #07090e;
+      border-color: transparent;
+    }
+
+    /* Consultation Callout */
+    .callout {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(7, 9, 14, 0.95) 100%);
+      border: 1px solid var(--gold-border);
+      border-radius: 24px;
+      padding: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+    .callout-text h3 { font-size: 24px; color: #fff; margin-bottom: 8px; }
+    .callout-text p { font-size: 15px; color: var(--text-muted); max-width: 620px; }
+    .btn-gold {
+      background: var(--gold-gradient); color: #07090e; font-weight: 700;
+      padding: 15px 32px; border-radius: 50px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      box-shadow: 0 6px 20px var(--gold-glow);
+    }
+
+    /* Footer */
+    .footer { padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); background: #040609; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; font-size: 13px; color: #64748b; }
+
+    /* Floating HUD */
+    .floating-hud { position: fixed; bottom: 26px; right: 26px; display: flex; flex-direction: column; gap: 12px; z-index: 9999; }
+    .hud-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); text-decoration: none; position: relative; }
+    .hud-tg { background: var(--accent-tg); color: #fff; }
+    .hud-phone { background: var(--accent-green); color: #fff; }
+    .hud-pulse { position: absolute; top: 0; right: 0; width: 14px; height: 14px; border-radius: 50%; background: #22c55e; border: 2px solid #07090e; }
+
+    @media (max-width: 980px) {
+      .nav-menu { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .page-title { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+          <div class="nav-emblem">⚖</div>
+          <div>
+            <div class="nav-title font-serif">БЕЛИК Г.П.</div>
+            <div class="nav-subtitle">Адвокатский кабинет</div>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Главная</a></li>
+          <li><a href="experience.html" class="nav-link">Опыт адвоката</a></li>
+          <li><a href="services.html" class="nav-link active">Полезные сервисы</a></li>
+          <li><a href="index.html#telegram" class="nav-link">Практика в TG</a></li>
+          <li><a href="index.html#contacts" class="nav-link">Контакты</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="tel:+79202115444" class="nav-phone">+7 (920) 211-54-44</a>
+          <a href="https://t.me/Belik_Galina_Pavlovna" target="_blank" rel="noopener" class="nav-btn">
+            <span>В Telegram</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="page-header">
+      <div class="badge">База знаний и реестры</div>
+      <h1 class="page-title font-serif">Полезные государственные <span class="gold-text">реестры и сервисы</span></h1>
+      <p class="page-subtitle">
+        Подборка проверенных официальных порталов РФ для быстрой проверки добросовестности контрагентов, поиска судебных исков, контроля задолженностей и расчета госпошлин.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <!-- 1. КАД Арбитр -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">⚖</div>
+          <div>
+            <div class="service-authority">Арбитражные суды РФ</div>
+            <h3 class="service-title">Картотека арбитражных дел (КАД)</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Единая электронная база всех арбитражных дел РФ. Позволяет проверить, судится ли компания или ИП прямо сейчас, были ли иски о банкротстве и взыскании многомиллионных долгов.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Введите ИНН контрагента во вкладке «Участник дела». Обратите особое внимание на иски, где компания выступает ответчиком.
+        </div>
+        <a href="https://kad.arbitr.ru/" target="_blank" rel="noopener" class="service-btn">
+          <span>Перейти в КАД Арбитр</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 2. ЕГРЮЛ / ФНС -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">📑</div>
+          <div>
+            <div class="service-authority">ФНС России</div>
+            <h3 class="service-title">Проверка контрагента (ЕГРЮЛ / ЕГРИП)</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Официальный сервис налоговой службы для моментального получения электронной выписки из ЕГРЮЛ/ЕГРИП с усиленной квалифицированной электронной подписью.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Проверьте дату регистрации, реальность адреса (не является ли массовым), статус директора и отсутствие отметок о недостоверности сведений.
+        </div>
+        <a href="https://egrul.nalog.ru/" target="_blank" rel="noopener" class="service-btn">
+          <span>Открыть проверку ФНС</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 3. ФССП -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">⚡</div>
+          <div>
+            <div class="service-authority">ФССП России</div>
+            <h3 class="service-title">Банк данных исполнительных производств</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Проверка наличия открытых исполнительных производств в отношении физических лиц, предпринимателей и организаций по всей территории России.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Если у компании множество непогашенных исполнительных листов, взыскать с нее долг даже через суд будет крайне затруднительно.
+        </div>
+        <a href="https://fssp.gov.ru/iss/ip" target="_blank" rel="noopener" class="service-btn">
+          <span>Проверить долги в ФССП</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 4. ЕФРСБ / Банкротство -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">🛡</div>
+          <div>
+            <div class="service-authority">Федресурс</div>
+            <h3 class="service-title">Реестр банкротств (ЕФРСБ)</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Публичный реестр сведений о несостоятельности (банкротстве), публикациях о намерении обратиться в суд с заявлением о банкротстве и залогах движимого имущества.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Кредиторы обязаны за 15 дней публиковать намерение обанкротить должника на Федресурсе. Это лучший индикатор предбанкротного состояния.
+        </div>
+        <a href="https://fedresurs.ru/" target="_blank" rel="noopener" class="service-btn">
+          <span>Перейти в Федресурс</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 5. Росреестр / Земля -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">🏛</div>
+          <div>
+            <div class="service-authority">Росреестр</div>
+            <h3 class="service-title">Публичная кадастровая карта (НСПД)</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Интерактивная карта земельных участков и объектов капитального строительства РФ. Просмотр границ, кадастровой стоимости, категории земель и формы собственности.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Незаменима при покупке земельного участка, спорах по межеванию и проверке участков, выделяемых администрацией или МИЗО.
+        </div>
+        <a href="https://pkk.rosreestr.ru/" target="_blank" rel="noopener" class="service-btn">
+          <span>Открыть кадастровую карту</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 6. Калькулятор госпошлины -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">🧮</div>
+          <div>
+            <div class="service-authority">Судебный департамент при ВС РФ</div>
+            <h3 class="service-title">Калькулятор государственной пошлины</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Официальный расчет размера государственной пошлины для подачи исковых заявлений, апелляционных и кассационных жалоб в суды общей юрисдикции и арбитражные суды.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Учитывайте масштабное повышение госпошлин с сентября 2024 года. Точный расчет суммы иска экономит время на устранение обездвижений.
+        </div>
+        <a href="https://calc.vsrf.ru/" target="_blank" rel="noopener" class="service-btn">
+          <span>Рассчитать госпошлину</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 7. ГАРАНТ -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">📚</div>
+          <div>
+            <div class="service-authority">Информационно-правовой портал</div>
+            <h3 class="service-title">Правовая система ГАРАНТ</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Актуальная справочно-правовая база: федеральные законы, постановления Пленумов Верховного Суда РФ, кодексы в действующих редакциях с комментариями.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Всегда проверяйте дату вступления норм в законную силу — судебная практика меняется с каждым новым обзором ВС РФ.
+        </div>
+        <a href="https://www.garant.ru/" target="_blank" rel="noopener" class="service-btn">
+          <span>Открыть базу ГАРАНТ</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- 8. ГИБДД -->
+      <div class="service-card">
+        <div class="service-head">
+          <div class="service-icon">🚗</div>
+          <div>
+            <div class="service-authority">Госавтоинспекция МВД России</div>
+            <h3 class="service-title">Проверка штрафов и ограничений на ТС</h3>
+          </div>
+        </div>
+        <p class="service-desc">
+          Проверка наличия неуплаченных административных штрафов, а также запретов и ограничений на регистрационные действия в отношении транспортных средств.
+        </p>
+        <div class="service-tips">
+          <strong>Совет адвоката:</strong> Обязательно проверяйте авто перед покупкой на предмет судебных запретов и залоговых ограничений.
+        </div>
+        <a href="https://xn--90adear.xn--p1ai/check/fines" target="_blank" rel="noopener" class="service-btn">
+          <span>Проверить в ГИБДД</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA BANNER -->
+    <div class="callout">
+      <div class="callout-text">
+        <h3 class="font-serif">Обнаружили проблемы при проверке контрагента или имущества?</h3>
+        <p>
+          Своевременный юридический аудит документов предотвращает потерю денег и активов. Напишите адвокату Белик Г.П. для оценки рисков и выработки судебной защиты.
+        </p>
+      </div>
+      <a href="https://t.me/Belik_Galina_Pavlovna" target="_blank" rel="noopener" class="btn-gold">
+        <span>Получить аудит ситуации</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2011 — 2026 Белик Галина Павловна. Адвокатский кабинет. Все права защищены.</div>
+        <div>Реестровый номер 36/1612 в реестре адвокатов Воронежской области.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING HUD -->
+  <div class="floating-hud">
+    <a href="tel:+79202115444" class="hud-btn hud-phone" title="Позвонить адвокату">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    </a>
+    <a href="https://t.me/Belik_Galina_Pavlovna" target="_blank" rel="noopener" class="hud-btn hud-tg" title="Написать в Telegram">
+      <span class="hud-pulse"></span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+    </a>
+  </div>
+</body>
+</html>
