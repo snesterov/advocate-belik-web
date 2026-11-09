@@ -144,6 +144,42 @@
     .section-title { font-size: 38px; font-weight: 800; color: #ffffff; line-height: 1.25; margin-bottom: 16px; }
     .section-subtitle { font-size: 16px; color: var(--text-muted); line-height: 1.6; }
 
+    /* --- PRACTICE TABS & CHECKLIST --- */
+    .practices-tabs {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin: 30px 0 38px; flex-wrap: wrap;
+    }
+    .practice-tab-btn {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94a3b8; padding: 12px 24px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .practice-tab-btn:hover {
+      border-color: var(--gold-border); color: #fff; background: rgba(212, 175, 55, 0.08);
+    }
+    .practice-tab-btn.active {
+      background: var(--gold-gradient); color: #07090e;
+      border-color: var(--gold); box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35); font-weight: 700;
+    }
+    .bento-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 4px 10px; border-radius: 6px; margin-bottom: 12px; width: fit-content;
+    }
+    .bento-tag.b2b { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .bento-tag.b2c { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .bento-checklist {
+      background: rgba(2, 6, 23, 0.55); border: 1px solid rgba(212, 175, 55, 0.22);
+      border-radius: 12px; padding: 14px 16px; margin-bottom: 22px;
+    }
+    .bento-checklist-title {
+      font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--gold-light); font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+    }
+    .bento-checklist-items { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+
     /* --- BENTO GRID SERVICES --- */
     .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
     .bento-card {
@@ -741,9 +777,15 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            <span>Палата адвокатов Воронежской области • Рег. № 36/1612</span>
+          <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+            <div class="hero-badge" style="margin-bottom:0;">
+              <span class="hero-badge-dot"></span>
+              <span>Палата адвокатов Воронежской области • Рег. № 36/1612</span>
+            </div>
+            <div class="hero-badge hero-badge-medal" style="margin-bottom:0; border-color:rgba(212,175,55,0.45); background:rgba(212,175,55,0.12);">
+              <span style="color:var(--gold); font-size:14px;">🏅</span>
+              <span style="color:var(--gold-light); font-weight:600;">Медаль ФПА РФ «За заслуги в защите прав и свобод граждан» (17.02.2026)</span>
+            </div>
           </div>
           
           <h1 class="hero-title font-serif">
@@ -792,7 +834,7 @@
               <div class="hero-card-badge">
                 <div>
                   <div class="hero-card-badge-name">Белик Галина Павловна</div>
-                  <div class="hero-card-badge-status">Адвокат по сложным спорам</div>
+                  <div class="hero-card-badge-status">Адвокат • Медаль ФПА РФ</div>
                 </div>
                 <div style="text-align: right;">
                   <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#10b981; box-shadow:0 0 10px #10b981;"></span>
@@ -810,65 +852,136 @@
   <section class="section" id="practices">
     <div class="container">
       <div class="section-header">
-        <div class="section-badge">Специализация</div>
+        <div class="section-badge">Специализация и практики</div>
         <h2 class="section-title font-serif">Ключевые направления защиты</h2>
-        <p class="section-subtitle">Точечная судебная экспертиза в областях с максимальной ценой ошибки и риском потери имущества</p>
+        <p class="section-subtitle">Точечная судебная экспертиза для бизнеса и граждан с четким планом подготовки к первичному анализу</p>
+        
+        <!-- AUDIENCE SWITCHER -->
+        <div class="practices-tabs">
+          <button class="practice-tab-btn active" data-tab="all" onclick="filterPractices('all')">
+            <span>⚖️ Все направления (6)</span>
+          </button>
+          <button class="practice-tab-btn" data-tab="b2b" onclick="filterPractices('b2b')">
+            <span>🏢 Для бизнеса и юрлиц (B2B)</span>
+          </button>
+          <button class="practice-tab-btn" data-tab="b2c" onclick="filterPractices('b2c')">
+            <span>👤 Для граждан (B2C)</span>
+          </button>
+        </div>
       </div>
 
       <div class="bento-grid">
-        <!-- 1. Арбитраж -->
-        <div class="bento-card">
-          <div class="bento-icon-wrap">⚖</div>
+        <!-- 1. Арбитраж (B2B) -->
+        <div class="bento-card" data-category="b2b">
+          <span class="bento-tag b2b">🏢 Для бизнеса</span>
+          <div class="bento-icon-wrap">⚖️</div>
           <h3 class="bento-card-title">Арбитражные и коммерческие споры</h3>
-          <p class="bento-card-descr">Защита бизнеса и предпринимателей при неисполнении контрактов, взыскании долгов и санкций контрагентов.</p>
+          <p class="bento-card-descr">Защита интересов юридических лиц при срыве контрактов, взыскании дебиторской задолженности и защите директоров.</p>
           <ul class="bento-list">
-            <li>Взыскание дебиторской задолженности, неустоек и убытков</li>
-            <li>Споры по договорам поставки, подряда, аренды и лизинга</li>
-            <li>Оспаривание недействительных сделок и решений органов управления</li>
+            <li>Взыскание задолженности, неустоек и убытков по договорам поставки и подряда</li>
+            <li>Оспаривание недействительных сделок и незаконных действий контрагентов</li>
             <li>Защита от субсидиарной ответственности директоров и бенефициаров</li>
+            <li>Исполнение решений арбитражных судов и арест активов должника</li>
           </ul>
+          <div class="bento-checklist">
+            <div class="bento-checklist-title">📋 Что подготовить к анализу:</div>
+            <div class="bento-checklist-items">Договор со спецификациями, акты КС-2/КС-3/УПД, досудебные претензии, платежные поручения и расчет суммы долга.</div>
+          </div>
           <a href="#quiz" class="bento-btn">Оценить перспективы спора →</a>
         </div>
 
-        <!-- 2. Недвижимость и земля -->
-        <div class="bento-card">
-          <div class="bento-icon-wrap">🏛</div>
+        <!-- 2. Недвижимость и споры с МИЗО (B2B / B2C) -->
+        <div class="bento-card" data-category="b2b b2c">
+          <span class="bento-tag b2b">🏢 Бизнесу и гражданам</span>
+          <div class="bento-icon-wrap">🏛️</div>
           <h3 class="bento-card-title">Недвижимость, земля и споры с МИЗО</h3>
-          <p class="bento-card-descr">Разрешение сложных земельных конфликтов, оспаривание незаконных решений административных органов и ведомств.</p>
+          <p class="bento-card-descr">Разрешение земельных конфликтов, оспаривание незаконных решений административных органов и защита прав на объекты.</p>
           <ul class="bento-list">
-            <li>Судебные споры с МИЗО Воронежской области (выдел земли, отказы)</li>
-            <li>Легализация самовольных построек и реконструкций</li>
-            <li>Установление и оспаривание границ земельных участков (сервитуты)</li>
-            <li>Защита прав дольщиков и инвесторов при срыве сроков сдачи</li>
+            <li>Судебные споры с МИЗО Воронежской области (отказы в аренде, выкуп, границы)</li>
+            <li>Легализация самовольных построек и реконструкций коммерческих зданий</li>
+            <li>Установление и оспаривание сервитутов, межевание и споры о границах</li>
+            <li>Защита прав инвесторов и дольщиков при нарушении сроков строительства</li>
           </ul>
+          <div class="bento-checklist">
+            <div class="bento-checklist-title">📋 Что подготовить к анализу:</div>
+            <div class="bento-checklist-items">Выписку ЕГРН, договор аренды или купли-продажи, письменный отказ органа власти (МИЗО), градостроительный план или межевой план.</div>
+          </div>
           <a href="#quiz" class="bento-btn">Оценить перспективы спора →</a>
         </div>
 
-        <!-- 3. Корпоративные конфликты -->
-        <div class="bento-card">
-          <div class="bento-icon-wrap">🛡</div>
-          <h3 class="bento-card-title">Защита бизнеса и корпоративные активы</h3>
-          <p class="bento-card-descr">Сохранение контроля над предприятиями, противодействие недружественным поглощениям и недобросовестным партнерам.</p>
+        <!-- 3. Корпоративные конфликты (B2B) -->
+        <div class="bento-card" data-category="b2b">
+          <span class="bento-tag b2b">🏢 Для бизнеса</span>
+          <div class="bento-icon-wrap">🛡️</div>
+          <h3 class="bento-card-title">Корпоративные конфликты и защита активов</h3>
+          <p class="bento-card-descr">Сохранение контроля над предприятиями, противодействие недобросовестным партнерам и защита активов компании.</p>
           <ul class="bento-list">
-            <li>Выход участника из ООО и выплата действительной стоимости доли</li>
-            <li>Истребование документов общества через судебный иск</li>
-            <li>Оспаривание решений общего собрания и крупных сделок</li>
-            <li>Защита конфиденциальных активов и интеллектуальной собственности</li>
+            <li>Выход участника из ООО и выплата реальной рыночной стоимости доли</li>
+            <li>Истребование документов общества через арбитражный суд</li>
+            <li>Оспаривание незаконных решений общих собраний и сделок с заинтересованностью</li>
+            <li>Блокировка недружественного вывода активов компании</li>
           </ul>
+          <div class="bento-checklist">
+            <div class="bento-checklist-title">📋 Что подготовить к анализу:</div>
+            <div class="bento-checklist-items">Действующий Устав ООО, выписку ЕГРЮЛ, протоколы собраний, бухгалтерский баланс общества на последнюю отчетную дату.</div>
+          </div>
           <a href="#quiz" class="bento-btn">Оценить перспективы спора →</a>
         </div>
 
-        <!-- 4. Семейные и наследственные активы -->
-        <div class="bento-card">
+        <!-- 4. Договорная работа и комплаенс (B2B) -->
+        <div class="bento-card" data-category="b2b">
+          <span class="bento-tag b2b">🏢 Для бизнеса</span>
+          <div class="bento-icon-wrap">📑</div>
+          <h3 class="bento-card-title">Правовой аудит контрактов и рисков</h3>
+          <p class="bento-card-descr">Глубокая экспертиза сложных договоров до подписания для полного исключения судебных рисков и убытков.</p>
+          <ul class="bento-list">
+            <li>Выявление скрытых штрафов, кабальных условий и односторонних отказов</li>
+            <li>Структурирование крупных сделок купли-продажи бизнеса и имущества</li>
+            <li>Разработка надежных договоров поставки, генерального подряда и аренды</li>
+            <li>Проведение досудебных переговоров с фиксацией компромиссных условий</li>
+          </ul>
+          <div class="bento-checklist">
+            <div class="bento-checklist-title">📋 Что подготовить к анализу:</div>
+            <div class="bento-checklist-items">Проект спорного договора со всеми приложениями, протокол разногласий и переписку сторон по согласованию условий.</div>
+          </div>
+          <a href="#quiz" class="bento-btn">Оценить перспективы спора →</a>
+        </div>
+
+        <!-- 5. Раздел имущества (B2C) -->
+        <div class="bento-card" data-category="b2c">
+          <span class="bento-tag b2c">👤 Для граждан</span>
           <div class="bento-icon-wrap">💎</div>
-          <h3 class="bento-card-title">Раздел крупного имущества и наследство</h3>
-          <p class="bento-card-descr">Конфиденциальная защита семейного капитала, долей бизнеса и дорогостоящей недвижимости при разводе и наследовании.</p>
+          <h3 class="bento-card-title">Раздел крупного имущества и бизнеса супругов</h3>
+          <p class="bento-card-descr">Конфиденциальная защита дорогостоящих активов, бизнеса и коммерческой недвижимости при разводе.</p>
           <ul class="bento-list">
-            <li>Раздел бизнеса, акций, долей ООО и объектов коммерческой недвижимости</li>
-            <li>Признание имущества раздельной собственностью одного из супругов</li>
+            <li>Раздел бизнеса, акций, долей в ООО и коммерческих объектов</li>
+            <li>Признание активов личной раздельной собственностью доверителя</li>
             <li>Оспаривание кабальных брачных договоров и соглашений</li>
-            <li>Сложные наследственные споры, восстановление сроков принятия</li>
+            <li>Защита от раздела фиктивных долгов и кредитов второго супруга</li>
           </ul>
+          <div class="bento-checklist">
+            <div class="bento-checklist-title">📋 Что подготовить к анализу:</div>
+            <div class="bento-checklist-items">Свидетельство о браке/расторжении, перечень спорного имущества с выписками ЕГРН, брачный договор (при наличии), документы о происхождении средств.</div>
+          </div>
+          <a href="#quiz" class="bento-btn">Оценить перспективы спора →</a>
+        </div>
+
+        <!-- 6. Наследственные и имущественные споры (B2C) -->
+        <div class="bento-card" data-category="b2c">
+          <span class="bento-tag b2c">👤 Для граждан</span>
+          <div class="bento-icon-wrap">📜</div>
+          <h3 class="bento-card-title">Сложные наследственные споры и защита прав</h3>
+          <p class="bento-card-descr">Разрешение запутанных споров между наследниками, оспаривание завещаний и защита прав собственности.</p>
+          <ul class="bento-list">
+            <li>Оспаривание завещаний при сомнениях в дееспособности наследодателя</li>
+            <li>Включение имущества и бизнес-активов в наследственную массу</li>
+            <li>Восстановление пропущенных сроков принятия наследства через суд</li>
+            <li>Выдел обязательной доли и оспаривание действий недобросовестных наследников</li>
+          </ul>
+          <div class="bento-checklist">
+            <div class="bento-checklist-title">📋 Что подготовить к анализу:</div>
+            <div class="bento-checklist-items">Свидетельство о смерти, документы подтверждения родства, справку об открытии наследственного дела от нотариуса или письменный отказ нотариуса.</div>
+          </div>
           <a href="#quiz" class="bento-btn">Оценить перспективы спора →</a>
         </div>
       </div>
@@ -1332,6 +1445,28 @@
         l.addEventListener('click', closeDrawer);
       });
     });
-  </script>
+  
+    // Фильтрация практик: Все / B2B / B2C
+    function filterPractices(category) {
+      const tabs = document.querySelectorAll('.practice-tab-btn');
+      tabs.forEach(btn => {
+        if (btn.getAttribute('data-tab') === category) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const cards = document.querySelectorAll('.bento-card[data-category]');
+      cards.forEach(card => {
+        if (category === 'all') {
+          card.style.display = 'flex';
+        } else {
+          const cats = card.getAttribute('data-category').split(' ');
+          card.style.display = cats.includes(category) ? 'flex' : 'none';
+        }
+      });
+    }
+</script>
 </body>
 </html>
